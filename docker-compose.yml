@@ -1,0 +1,37 @@
+services:
+  api:
+    build:
+      context: ./services/api
+    environment:
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://127.0.0.1:4173,http://127.0.0.1:5173}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:-local-development-only}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      SUPABASE_SECRET_KEY: ${SUPABASE_SECRET_KEY:-}
+      SUPABASE_URL: ${SUPABASE_URL:-http://host.docker.internal:54321}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready')",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://127.0.0.1:8000}
+        VITE_SUPABASE_PUBLISHABLE_KEY: ${VITE_SUPABASE_PUBLISHABLE_KEY:-}
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL:-http://127.0.0.1:54321}
+    ports:
+      - "4173:8080"
+    depends_on:
+      api:
+        condition: service_healthy
