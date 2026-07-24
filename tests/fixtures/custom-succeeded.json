@@ -1,0 +1,14 @@
+{
+  "event_id": "evt-custom-001",
+  "event_timestamp": "2026-07-24T08:00:05Z",
+  "event_type": "run.completed",
+  "workflow_id": "wf-custom-demo",
+  "workflow_name": "Custom Demo Workflow",
+  "run_id": "run-custom-001",
+  "status": "succeeded",
+  "started_at": "2026-07-24T08:00:00Z",
+  "ended_at": "2026-07-24T08:00:05Z",
+  "schema_version": "2",
+  "input_summary": { "record_count": 4 },
+  "output_summary": { "processed": 4 }
+}

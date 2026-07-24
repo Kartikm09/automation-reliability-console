@@ -1,0 +1,32 @@
+{
+  "name": "automation-reliability-console",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-tenant operations console for reliable automation execution.",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "apps/web",
+    "packages/contracts",
+    "tests/e2e"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @arc/contracts && npm run build --workspace @arc/web",
+    "dev": "npm run dev --workspace @arc/web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspace @arc/web",
+    "test:e2e": "npm run test --workspace @arc/e2e",
+    "test:edge": "deno test --config supabase/functions/deno.json --allow-env supabase/functions",
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "verify:hosted": "node scripts/verify-hosted.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build && npm run check:secrets"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
+  }
+}
