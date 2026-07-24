@@ -2,21 +2,21 @@
 
 Updated: 2026-07-24
 
-| Suite                   | Result                    | Evidence                                                     |
-| ----------------------- | ------------------------- | ------------------------------------------------------------ |
-| pgTAP local             | 86 passed                 | schema, RLS, states, service grants, encrypted Cron          |
-| pgTAP hosted            | 86 passed                 | same suite against the dedicated hosted project              |
-| FastAPI Pytest          | 35 passed                 | adapters, ordering, incidents, redaction, replay, endpoints  |
-| Deno format/lint/check  | Passed                    | shared modules and seven function entrypoints                |
-| Deno unit tests         | 8 passed                  | crypto and four provider normalizers                         |
-| Web Vitest              | 7 passed                  | components and formatting                                    |
-| TypeScript build/lint   | Passed                    | strict references, ESLint, Vite and Cloudflare builds        |
-| Python static checks    | Passed                    | Ruff and strict Mypy                                         |
-| Playwright E2E          | 6 passed in three targets | Vite, Nginx, Sites build; desktop and mobile                 |
-| Hosted authorization    | Passed                    | artifact signing, tenant denial, private Broadcast rejection |
-| Hosted queue worker     | Passed                    | Vault-backed Cron invocation returned HTTP 200               |
-| Docker Compose          | Passed                    | API healthy; production frontend served                      |
-| Secret/dependency scans | Passed                    | 172 source/built files; npm audit found no vulnerabilities   |
+| Suite                   | Result              | Evidence                                                     |
+| ----------------------- | ------------------- | ------------------------------------------------------------ |
+| pgTAP local             | 86 passed           | schema, RLS, states, service grants, encrypted Cron          |
+| pgTAP hosted            | 86 passed           | same suite against the dedicated hosted project              |
+| FastAPI Pytest          | 35 passed           | adapters, ordering, incidents, redaction, replay, endpoints  |
+| Deno format/lint/check  | Passed              | shared modules and seven function entrypoints                |
+| Deno unit tests         | 8 passed            | crypto and four provider normalizers                         |
+| Web Vitest              | 7 passed            | components and formatting                                    |
+| TypeScript build/lint   | Passed              | strict references, ESLint, Vite and Cloudflare builds        |
+| Python static checks    | Passed              | Ruff and strict Mypy                                         |
+| Playwright E2E          | 6 passed per target | Vite, Nginx, Sites preview, and production; desktop + mobile |
+| Hosted authorization    | Passed              | artifact signing, tenant denial, private Broadcast rejection |
+| Hosted queue worker     | Passed              | Vault-backed Cron invocation returned HTTP 200               |
+| Docker Compose          | Passed              | API healthy; production frontend served                      |
+| Secret/dependency scans | Passed              | 179 source/built files; npm audit found no vulnerabilities   |
 
 ## Commands Executed
 

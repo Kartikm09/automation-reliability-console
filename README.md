@@ -27,8 +27,10 @@ and private Realtime channels keep the operator workflow controlled.
 The dedicated Supabase backend, seven Edge Functions, private Storage,
 organization Broadcast channels, three durable queues, and encrypted
 Cron-triggered worker are deployed and verified. Local and hosted database
-suites each pass 86 pgTAP assertions. The React portfolio deployment is in its
-final publication step; FastAPI is container-verified locally because no
+suites each pass 86 pgTAP assertions. The
+[React operator console](https://automation-reliability-console.zw386.chatgpt.site)
+is publicly deployed and its authenticated desktop and mobile workflows pass
+against the production URL. FastAPI is container-verified locally because no
 authenticated public container provider is available in this environment.
 
 ## Capabilities
