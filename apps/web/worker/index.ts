@@ -1,9 +1,19 @@
-/**
- * Non-navigation requests that miss a static asset end here. Browser
- * navigation uses Cloudflare's configured SPA fallback to index.html.
- */
+interface WorkerEnvironment {
+  ASSETS: {
+    fetch(input: Request): Promise<Response>;
+  };
+}
+
 export default {
-  fetch(): Response {
+  async fetch(
+    request: Request,
+    environment: WorkerEnvironment,
+  ): Promise<Response> {
+    const acceptsHtml = request.headers.get("accept")?.includes("text/html");
+    if (request.method === "GET" && acceptsHtml) {
+      const fallbackRequest = new Request(new URL("/", request.url), request);
+      return environment.ASSETS.fetch(fallbackRequest);
+    }
     return Response.json(
       { error: { code: "not_found", message: "Resource not found." } },
       { status: 404 },
