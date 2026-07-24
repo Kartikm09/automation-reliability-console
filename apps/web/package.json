@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
-    "build:sites": "tsc -b && vite build --config vite.sites.config.ts && node ../../scripts/sanitize-sites-build.mjs dist",
+    "build:sites": "node ../../scripts/clean-sites-build.mjs dist && tsc -b && vite build --config vite.sites.config.ts && node ../../scripts/sanitize-sites-build.mjs dist",
     "dev": "vite",
     "format:check": "prettier --check .",
     "lint": "eslint .",
