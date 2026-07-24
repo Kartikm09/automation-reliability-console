@@ -1,0 +1,6 @@
+apps/web/dist/
+node_modules/
+packages/contracts/dist/
+supabase/functions/
+tests/e2e/artifacts/
+tests/e2e/report/
