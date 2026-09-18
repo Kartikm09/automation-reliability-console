@@ -65,7 +65,9 @@ export function OrganizationProvider({ children }: PropsWithChildren) {
   }, [memberships, selectedId]);
 
   const membership =
-    memberships.find((item) => item.organization_id === selectedId) ?? null;
+    memberships.find((item) => item.organization_id === selectedId) ??
+    memberships[0] ??
+    null;
   const value = useMemo<OrganizationContextValue>(
     () => ({
       loading: query.isLoading,
