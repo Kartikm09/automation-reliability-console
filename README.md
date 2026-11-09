@@ -199,6 +199,10 @@ storage, provider normalization, durable processing, incident workflows,
 controlled replay, private artifacts, RLS isolation, Realtime updates, and
 multi-layer automated tests using entirely synthetic data.
 
+## Roadmap
+
+Planned work is listed in [ROADMAP.md](ROADMAP.md).
+
 ## License
 
 [Apache License 2.0](LICENSE)
